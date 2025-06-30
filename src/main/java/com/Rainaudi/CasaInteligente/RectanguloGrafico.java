@@ -2,7 +2,7 @@ package com.Rainaudi.CasaInteligente;
 
 import java.awt.*;
 
-//Creamos el metodo donde va a heredar los atributos de la clase padre "Rectangulo"
+//Creamos la clase "RectanguloGrafico" donde va a heredar los atributos de la clase padre "Rectangulo"
 //y implementa el metodo de "Dibujable"
 public class RectanguloGrafico extends Rectangulo implements Dibujable {
 

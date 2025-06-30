@@ -3,8 +3,12 @@ package com.Rainaudi.CasaInteligente;
 import javax.swing.*;
 import java.awt.*;
 
+//Creamos la clase "VentanCerrable" q va a heredar de "JFrame"
 public class VentanaCerrable extends JFrame {
-    //Creamos las variables
+    /*
+    Creamos las figuras graficas q vamos a dibujar
+    Cada una hereda de sus respectivas clases
+    */
     private PanelDibujo panel;
     private CirculoGrafico luzCocina;
     private RectanguloGrafico alarmaEntrada;
@@ -16,7 +20,7 @@ public class VentanaCerrable extends JFrame {
     private boolean alarmaActivada = false;
     private boolean sensorActivo = false;
 
-    //Metodo
+    //Constructor
     public VentanaCerrable() {
 
         setTitle("Simulador de Casa Inteligente"); //Titulo de nuestra ventana
@@ -24,7 +28,7 @@ public class VentanaCerrable extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE); //Le damos la accion al boton de cerrar de la pestaña
         setLayout(new BorderLayout());
 
-        //Realizamos una instancia
+        //Instanciamos el panel de dibujo
         panel = new PanelDibujo();
 
         //Creamos las habitaciones con sus tamaños
@@ -50,33 +54,48 @@ public class VentanaCerrable extends JFrame {
         //Creamos los botones del panel
         JPanel botones = new JPanel();
 
-        //Creamos el boton de luz de la cocina
+        //Creamos la accion del boton de luz de la cocina
         JButton botonLuz = new JButton("Encender/Apagar luz cocina");
         botonLuz.addActionListener(e -> {
+            //Cambiamos el estado de la luz
             luzEncendida = !luzEncendida;
             luzCocina.cambiarColor(luzEncendida ? Color.YELLOW : Color.GRAY);
+            //Mostramos una ventana emergente, avisando si se encendio la luz o se apago
             JOptionPane.showMessageDialog(this, luzEncendida ? "Luz encendida en la cocina" : "Luz apagada en la cocina");
+            //Actualizamos la vista, esto lo hacemos para q ver el nuevo color de la luz
             panel.repaint();
         });
 
-        //Creamos el boton de la alarma de la entrada
-        JButton botonAlarma = new JButton("Activar/Desactivar alarma entrada");
+        //Creamos la accion del boton de la alarma
+        JButton botonAlarma = new JButton("Activar/Desactivar alarma");
         botonAlarma.addActionListener(e -> {
+            //Cambiamos el estado de la alarma
             alarmaActivada = !alarmaActivada;
             alarmaEntrada.cambiarColor(alarmaActivada ? Color.RED : Color.GRAY);
-            JOptionPane.showMessageDialog(this, alarmaActivada ? "Alarma activada en la entrada" : "Alarma desactivada en la entrada");
+            //Mostramos una ventana emergente, avisando si se activo la alarma o se desactivo
+            JOptionPane.showMessageDialog(this, alarmaActivada ? "Alarma activada" : "Alarma desactivada");
+            //Actualizamos la vista, esto lo hacemos para q ver el nuevo color de la alarma
             panel.repaint();
         });
 
-        //Creamos el boton del sensor del living
+        //Creamos las acciones de los botones de los sensores del living
         JButton botonMovimiento = new JButton("Activar/Desactivar sensores");
         botonMovimiento.addActionListener(e -> {
+            //Cambiamos el estado del sensor
             sensorActivo = !sensorActivo;
             sensorCocina.cambiarColor(sensorActivo ? Color.GREEN : Color.GRAY);
             sensorLiving.cambiarColor(sensorActivo ? Color.GREEN : Color.GRAY);
+            //Mostramos una ventana emergente, avisando si se activo el sensor o se desactivo
             JOptionPane.showMessageDialog(this, sensorActivo ? "Sensores activados" : "Sensores desactivados");
+            //Actualizamos la vista, esto lo hacemos para q ver los nuevos colores de los sensores
             panel.repaint();
         });
+
+        /*
+            "e -> {...}": es una expresion lambda, lo q hace es reaccionar a algun clic q se haga en el boton.
+            "sensorActivo ? Color.GREEN : Color.Gray": es un operador ternario. Si se cumple la condicion,
+            usa A o B.
+        */
 
         //Agregamos botones a la pestaña
         botones.add(botonLuz);

@@ -2,7 +2,7 @@ package com.Rainaudi.CasaInteligente;
 
 import java.awt.*;
 
-//Creamos el metodo donde va a heredar los atributos de la clase padre "Circulo"
+//Creamos la clase "CirculoGrafico" donde va a heredar los atributos de la clase padre "Circulo"
 //y implementa el metodo de "Dibujable"
 public class CirculoGrafico extends Circulo implements Dibujable {
 
