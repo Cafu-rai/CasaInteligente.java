@@ -2,7 +2,7 @@ package com.Rainaudi.CasaInteligente;
 
 import java.awt.*;
 
-//Creamos el metodo donde va a recibir los atributos de la clase padre "Triangulo"
+//Creamos el metodo donde va a heredar los atributos de la clase padre "Triangulo"
 //y implementa el metodo de "Dibujable"
 public class TrianguloGrafico extends Triangulo implements Dibujable {
 
@@ -10,6 +10,7 @@ public class TrianguloGrafico extends Triangulo implements Dibujable {
 
     //Constructor
     public TrianguloGrafico(int x, int y, int tamanio, Color color) {
+        //Con "super" llamamos al metodo de la clase padre "Triangulo" y hereda los atributos
         super(x,y,tamanio);
         this.color = color;
     }
