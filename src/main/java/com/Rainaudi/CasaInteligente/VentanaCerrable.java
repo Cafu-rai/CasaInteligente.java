@@ -33,13 +33,13 @@ public class VentanaCerrable extends JFrame {
         panel = new PanelDibujo();
 
         //Creamos las habitaciones con sus tamaños
-        panel.agregarFigura(new RectanguloGrafico(149, 50, 150, 100, Color.LIGHT_GRAY)); // Cocina
-        panel.agregarFigura(new RectanguloGrafico(300, 50, 150, 100, Color.LIGHT_GRAY)); // Entrada
-        panel.agregarFigura(new RectanguloGrafico(300, 151, 150, 100, Color.LIGHT_GRAY)); // Living
+        panel.agregarFigura(new RectanguloGrafico(149, 50, 150, 100, "Entrada", Color.LIGHT_GRAY)); // Cocina
+        panel.agregarFigura(new RectanguloGrafico(300, 50, 150, 100, "Cocina", Color.LIGHT_GRAY)); // Entrada
+        panel.agregarFigura(new RectanguloGrafico(300, 151, 150, 100, "Living", Color.LIGHT_GRAY)); // Living
 
         //Creamos los sensores, luz y alarma con sus tamaños
         luzCocina = new CirculoGrafico(212, 85, 25, Color.GRAY);
-        alarmaEntrada = new RectanguloGrafico(305, 55, 15, 15, Color.GRAY);
+        alarmaEntrada = new RectanguloGrafico(430, 130, 15, 15,"", Color.GRAY);
         sensorEntrada = new TrianguloGrafico(287, 130, 15, Color.GRAY);
         sensorCocina = new TrianguloGrafico(440, 55, 15, Color.GRAY);
         sensorLiving = new TrianguloGrafico(440, 230, 15, Color.GRAY);
