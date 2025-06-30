@@ -14,6 +14,7 @@ public class VentanaCerrable extends JFrame {
     private RectanguloGrafico alarmaEntrada;
     private TrianguloGrafico sensorCocina;
     private TrianguloGrafico sensorLiving;
+    private TrianguloGrafico sensorEntrada;
 
     //Creamos variables booleanas para alternar encendido/apagado
     private boolean luzEncendida = false;
@@ -38,13 +39,15 @@ public class VentanaCerrable extends JFrame {
 
         //Creamos los sensores con sus tamaños
         luzCocina = new CirculoGrafico(212, 85, 25, Color.GRAY);
-        alarmaEntrada = new RectanguloGrafico(280, 55, 15, 15, Color.GRAY);
+        alarmaEntrada = new RectanguloGrafico(305, 55, 15, 15, Color.GRAY);
+        sensorEntrada = new TrianguloGrafico(287, 130, 15, Color.GRAY);
         sensorCocina = new TrianguloGrafico(440, 55, 15, Color.GRAY);
         sensorLiving = new TrianguloGrafico(440, 230, 15, Color.GRAY);
 
         //Agregamos los sensores al panel
         panel.agregarFigura(luzCocina);
         panel.agregarFigura(alarmaEntrada);
+        panel.agregarFigura(sensorEntrada);
         panel.agregarFigura(sensorCocina);
         panel.agregarFigura(sensorLiving);
 
@@ -83,6 +86,7 @@ public class VentanaCerrable extends JFrame {
         botonMovimiento.addActionListener(e -> {
             //Cambiamos el estado del sensor
             sensorActivo = !sensorActivo;
+            sensorEntrada.cambiarColor(sensorActivo ? Color.GREEN : Color.GRAY);
             sensorCocina.cambiarColor(sensorActivo ? Color.GREEN : Color.GRAY);
             sensorLiving.cambiarColor(sensorActivo ? Color.GREEN : Color.GRAY);
             //Mostramos una ventana emergente, avisando si se activo el sensor o se desactivo
